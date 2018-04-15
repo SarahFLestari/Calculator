@@ -32,16 +32,26 @@ class ViewController: UIViewController {
     }
 
     @IBAction func numberPressed(_ sender: RoundButton) {
-        runningNumber += "\(sender.tag)"
-        outputLabel.text = runningNumber
+        if runningNumber.count <= 8 {
+            runningNumber += "\(sender.tag)"
+            outputLabel.text = runningNumber
+        }
     }
     
     @IBAction func allClearPressed(_ sender: RoundButton) {
+        runningNumber = ""
+        leftValue = ""
+        rightValue = ""
+        result = ""
+        currentOperation = .null
+        outputLabel.text = ""
     }
     
     @IBAction func dotPressed(_ sender: RoundButton) {
-        runningNumber += "."
-        outputLabel.text = runningNumber
+        if runningNumber.count <= 7 {
+            runningNumber += "."
+            outputLabel.text = runningNumber
+        }
     }
     
     @IBAction func equalsPressed(_ sender: RoundButton) {
